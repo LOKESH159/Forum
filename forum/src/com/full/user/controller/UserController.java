@@ -23,7 +23,8 @@ import com.google.gson.JsonObject;
 public class UserController {
 	@Autowired
 	private UserHelper userHelper;
-Logger logger=Logger.getLogger(UserController.class.getClass());
+	Logger logger = Logger.getLogger(UserController.class.getClass());
+
 	public void setUserHelper(UserHelper userHelper) {
 		this.userHelper = userHelper;
 	}
@@ -57,7 +58,7 @@ Logger logger=Logger.getLogger(UserController.class.getClass());
 	public @ResponseBody String addUser(HttpServletRequest req) {
 		System.out.println("IAM IN SignUp SERVLET");
 		return userHelper.addUser(req);
-	
+
 	}
 
 	@RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
@@ -65,8 +66,6 @@ Logger logger=Logger.getLogger(UserController.class.getClass());
 	public void addQuestion(HttpServletRequest req) {
 		userHelper.askedQuestion(req);
 	}
-	
-	
 
 	@ResponseBody
 	@RequestMapping(value = "/retrieveQuestions", method = RequestMethod.GET)
@@ -84,7 +83,7 @@ Logger logger=Logger.getLogger(UserController.class.getClass());
 		return userHelper.retrievingIdQuestion(questionId);
 	}
 
-	@RequestMapping(value="/forgotPassword",method = RequestMethod.POST)
+	@RequestMapping(value = "/forgotPassword", method = RequestMethod.POST)
 	@ResponseBody
 	public String forgotPassword(HttpServletRequest req) {
 		String eMail = req.getParameter("EMAIL");
@@ -130,26 +129,29 @@ Logger logger=Logger.getLogger(UserController.class.getClass());
 		System.out.println("IAM IN SUBMIT VOTE SERVLET");
 		return userHelper.addVote(req);
 	}
+
 	@RequestMapping("/")
-	public String getHomePage(){
+	public String getHomePage() {
 		return "homepage";
 	}
+
 	@RequestMapping("/signUpConfirmation")
 	@ResponseBody
 	public String userConfirmation(HttpServletRequest req) {
-		String customerID=req.getParameter("customerId");
-	return userHelper.userConfirmation(customerID);
-	
+		String customerID = req.getParameter("customerId");
+		return userHelper.userConfirmation(customerID);
+
 	}
+
 	@RequestMapping("/passwordRecovery")
 	@ResponseBody
 	public String passwordRecovery(HttpServletRequest req) {
 		logger.info("IAM IN PASSWORD REcovery SERVLET");
-		String customerId=req.getParameter("CUSTOMERID");
-		String password=req.getParameter("PASSWORD");   	    
-		logger.info("CUSTOMER ID IS="+customerId);
-		logger.info("PASSWORD IS="+password);
+		String customerId = req.getParameter("CUSTOMERID");
+		String password = req.getParameter("PASSWORD");
+		logger.info("CUSTOMER ID IS=" + customerId);
+		logger.info("PASSWORD IS=" + password);
 		return userHelper.updatingPassword(customerId, password);
-	
+
 	}
 }

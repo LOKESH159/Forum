@@ -64,7 +64,6 @@ public class UserHelper {
 			session.setAttribute("EMAIL", eMail);
 			session.setAttribute("PASSWORD", password);
 			session.setMaxInactiveInterval(120);
-
 			jsonObject.addProperty("status", true);
 		} else {
 			System.out.println("USER  NOT EXISTS ");

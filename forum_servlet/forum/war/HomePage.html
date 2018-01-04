@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+function askQuestion(){
+	alert("YOU MUST BE LOGGED IN FIRST");	
+}
+</script>
+<style type="text/css">
+.home{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: red;
+}
+</style>
+</head>
+<body>
+<ul class="home">
+  <li><a href="homepage.jsp">Home</a></li>
+  <li><input type="search" id="mySearch" onkeyup="search(event)"></li>
+  <li><a href="Login.jsp">LOGIN</a></li>
+  <li><a href="signup.jsp">SIGN UP</a></li>
+   <li><a href="Login.jsp" onclick="askQuestion()">ASK A QUESTION</a></li>
+</ul>
+<div id="questions">
+</div>
+</body>
+</html>

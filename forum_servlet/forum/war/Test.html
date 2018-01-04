@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+
+function myfunction(){
+	var data='{"EMAIL":"lokeshkumartalari666@gmail.com","PASSWORD":"lokesh"}';
+	alert(data);
+	var object=JSON.parse(data);
+	alert(object);
+	alert(object.EMAIL);
+	alert(object["PASSWORD"]);
+	//document.getElementById("imageHolder").innerHTML="<img src='/images/check.png' alt='' width='2%' height='2%'/>";
+}</script>
+
+</head>
+<body>
+<a href="javascript:myfunction();">Click me!</a>
+<div id="imageHolder">this is where the image will show</div>
+
+</body>
+</html>
